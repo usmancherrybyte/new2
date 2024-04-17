@@ -10,10 +10,10 @@ app.use("/", (req, res) => {
   res.json({ message: "Hello, Express.js!" });
 });
 app.get("/check", (req, res) => {
-  res.json({ message: "Hello, Express.js!2" });
+  res.json({ message: "get" });
 });
-app.get("/post", (req, res) => {
-  res.json({ message: "Hello, Express.js!2" });
+app.post("/post", (req, res) => {
+  res.json({ message: "post" });
 });
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
