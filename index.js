@@ -6,9 +6,9 @@ console.log("Server is running");
 
 // Initialize Express app
 const app = express();
-app.use("/", (req, res) => {
-  res.json({ message: "Hello, Express.js!" });
-});
+// app.use("/", (req, res) => {
+//   res.json({ message: "Hello, Express.js!" });
+// });
 app.get("/check", (req, res) => {
   res.json({ message: "get" });
 });
