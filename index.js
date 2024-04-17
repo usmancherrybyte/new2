@@ -1,6 +1,6 @@
 const express = require("express");
 
-const PORT = 3071;
+const PORT = process.env.PORT || 3071;
 
 console.log("Server is running");
 
