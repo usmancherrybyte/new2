@@ -14,7 +14,7 @@ dotenv.config();
 // Load environment variables
 const PORT = process.env.PORT || 3097;
 const MONGODB_ATLAS_URL =
-  "mongodb+srv://umth5898:RjORsgelUCYj9f4C@cluster0.dxswetf.mongodb.net/wild-Apricot-info";
+  "mongodb+srv://umth5898:RjORsgelUCYj9f4C@cluster0.dxswetf.mongodb.net/wild-Apricot-infoioi";
 
 console.log("Server is running");
 
@@ -30,6 +30,17 @@ app.use(bodyParser.json());
 mongoose.connect(MONGODB_ATLAS_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+});
+// Schedule a cron job to run every 2 minutes
+cron.schedule("*/1 * * * *", async () => {
+  // This function will be executed every 2 minutes
+  console.log("Fetching events after 2 minutes...");
+  try {
+    await allContacts.getAccounts();
+    console.log("Cron job executed successfully");
+  } catch (error) {
+    console.error("Error fetching events:", error);
+  }
 });
 
 // Static files
